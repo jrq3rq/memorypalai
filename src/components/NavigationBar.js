@@ -17,7 +17,7 @@ const BrandLink = styled(Navbar.Brand)`
 
 const NavLink = styled(Link)`
   color: #bbb;
-
+  padding: 1rem;
   &:hover {
     color: #f4f4f4;
     text-decoration: none;
@@ -39,12 +39,9 @@ const NavigationBar = () => (
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <NavItem>
-            <NavLink to="/">Home</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to="/contact">Contact</NavLink>
-          </NavItem>
+          <NavLink to="/">Home</NavLink>
+
+          <NavLink to="/upload">Upload</NavLink>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

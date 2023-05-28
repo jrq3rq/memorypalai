@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import BlankPictureGallery from "../components/BlankPictureGallery";
 
 const HomeContainer = styled.div`
   max-width: 800px;
@@ -20,34 +21,29 @@ const Paragraph = styled.p`
 `;
 
 const Home = () => (
-  <HomeContainer>
-    <Heading>Welcome!</Heading>
-    <Paragraph>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum
-      convallis risus, id pellentesque ipsum pulvinar quis. Sed volutpat metus
-      id turpis lacinia interdum. Mauris tristique euismod nisi vel fermentum.
-      Curabitur non semper tortor, vitae rutrum nisi. Sed vitae ligula euismod,
-      fermentum ligula non, suscipit magna. Duis nec fringilla lorem. In vitae
-      sapien justo. Aliquam et efficitur nunc. Sed efficitur tincidunt
-      consectetur. Ut vitae enim vitae dui fringilla accumsan. Phasellus id
-      mollis est, ut finibus ante. Suspendisse eleifend eleifend ligula sed
-      pellentesque.
-    </Paragraph>
-    <Paragraph>
-      Fusce id ligula nec nunc tempor finibus. Aliquam non tortor eu metus
-      pellentesque feugiat. Morbi convallis, urna ut aliquam bibendum, purus
-      justo fringilla lacus, ac luctus tellus tellus non tellus. Mauris dictum
-      ligula ut tincidunt vestibulum. In posuere facilisis nunc eu ultricies.
-      Vivamus at quam congue, euismod massa ac, dictum ipsum. In hac habitasse
-      platea dictumst. Sed ac enim id arcu sollicitudin cursus. Phasellus vitae
-      tincidunt sapien, id bibendum sem. Sed pellentesque neque tellus, sed
-      feugiat dolor iaculis eget. Nullam auctor eleifend fringilla. Sed sit amet
-      nunc nec nunc faucibus tristique vel eu ex. Vivamus convallis pellentesque
-      lectus, in elementum sem consequat id. Nullam mollis ultrices sapien, at
-      commodo mauris semper eu. Donec in enim sollicitudin, ultrices turpis id,
-      consequat dolor.
-    </Paragraph>
-  </HomeContainer>
+  <>
+    <HomeContainer>
+      <Heading>Welcome!</Heading>
+      <Paragraph>
+        Drawing from its extensive personalized knowledge pools, FamiliAI
+        narrates and recounts captivating stories, shares family traditions, and
+        exemplifies the significance of heirlooms. These personalized narratives
+        are tailored to your history, making family legacy come alive in new and
+        engaging ways.
+      </Paragraph>
+      <Paragraph>
+        Preserving Family Heritage for the Future with AI is an innovative
+        solution that harnesses the power of artificial intelligence to
+        safeguard and celebrate your family's rich history. Through advanced
+        algorithms and intelligent technologies, our product enables you to
+        uncover hidden gems, connect with your roots, and preserve cherished
+        memories for future generations. Experience the transformative journey
+        of preserving your family heritage with ease, efficiency, and a touch of
+        technological marvel.
+      </Paragraph>
+    </HomeContainer>
+    <BlankPictureGallery />
+  </>
 );
 
 export default Home;
