@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import BlankPictureGallery from "../components/BlankPictureGallery";
-import { Header, HomeContainer, ListItem, Paragraph, Title } from "./Home";
 import { Container } from "react-bootstrap";
 import Jobotron from "../components/Jombotron";
 import imageData from "../components/ImageData"; // Update the path to your image data file
+import { HomeContainer, ListItem, Paragraph, Title } from "../pages/Home";
 
 const images = [imageData[1]];
 
@@ -110,7 +110,7 @@ const AdditionalButton = styled.button`
   }
 `;
 
-const DataUploadCard = () => {
+const Modal = () => {
   const handleFileUpload = (e) => {
     // Handle file upload logic here
   };
@@ -126,8 +126,6 @@ const DataUploadCard = () => {
 
   return (
     <>
-      {/* <BackgroundImage image={images[0]} /> */}
-
       <HomeContainer>
         <Title>Welcome to FamiliAI</Title>
         <Paragraph>
@@ -186,6 +184,7 @@ const DataUploadCard = () => {
             key statistics and information on chatbot cards.
           </ListItem>
         </ul>
+
         {/* <Paragraph>
           Our user-friendly chatbot editor will empower users to shape
           conversational experiences with ease. They will be able to import,
@@ -274,9 +273,9 @@ const DataUploadCard = () => {
         </ul>
       </HomeContainer>
 
-      <Jobotron />
+      {/* <Jobotron /> */}
     </>
   );
 };
 
-export default DataUploadCard;
+export default Modal;

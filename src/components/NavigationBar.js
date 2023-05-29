@@ -4,11 +4,11 @@ import { Nav, Navbar } from "react-bootstrap";
 import styled from "styled-components";
 
 const NavBarContainer = styled.nav`
-  background-color: #ffffff;
+  background-color: transparent;
 `;
 
 const BrandLink = styled(Navbar.Brand)`
-  color: #bbb;
+  color: #000000;
   padding: 1em;
   &:hover {
     color: white;
@@ -16,7 +16,8 @@ const BrandLink = styled(Navbar.Brand)`
 `;
 
 const NavLink = styled(Link)`
-  color: #bbb;
+  color: #000000;
+  /* color: #bbb; */
   padding: 1rem;
   &:hover {
     color: #f4f4f4;
@@ -40,8 +41,7 @@ const NavigationBar = () => (
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           <NavLink to="/">Home</NavLink>
-
-          <NavLink to="/upload">Upload</NavLink>
+          <NavLink to="/roadmap">Roadmap</NavLink>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

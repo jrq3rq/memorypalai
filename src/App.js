@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
@@ -9,6 +14,7 @@ import Login from "./Login";
 import NavigationBar from "./components/NavigationBar";
 import DataUploadCard from "./pages/Upload";
 import styled from "styled-components";
+import { NoMatch } from "./pages/NoMatch";
 
 const Container = styled.div`
   height: 100vh;
@@ -30,8 +36,9 @@ const App = () => {
             <NavigationBar />
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route path="/upload" component={DataUploadCard} />
+              <Route path="/roadmap" component={DataUploadCard} />
               {/* <Route component={NoMatch} /> */}
+              <Redirect to="/" />
             </Switch>
           </Router>
         </>

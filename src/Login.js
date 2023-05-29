@@ -64,7 +64,10 @@ const CustomButton = styled(Button)`
     cursor: pointer;
     font-size: 1em;
     letter-spacing: 0.2em;
-    font-weight: bold;
+    font-weight: 100;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+    /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); */
+
     text-transform: uppercase;
     background: linear-gradient(
       135deg,
@@ -198,9 +201,9 @@ function Login() {
           <CustomButton variant="contained" onClick={signIn}>
             Sign In
           </CustomButton>
-          <CustomButton variant="contained" onClick={handleOpenModal}>
+          {/* <CustomButton variant="contained" onClick={handleOpenModal}>
             Sign Up
-          </CustomButton>
+          </CustomButton> */}
         </CardContainer>
       </ButtonContainer>
       <Modal open={modalOpen} onClose={handleCloseModal}>

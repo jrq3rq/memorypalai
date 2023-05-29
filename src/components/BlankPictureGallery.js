@@ -47,6 +47,12 @@ const BlankPictureGallery = () => {
       <Box>
         <Image src="https://via.placeholder.com/300" alt="Mockup 4" />
       </Box>
+      <Box>
+        <Image src="https://via.placeholder.com/300" alt="Mockup 5" />
+      </Box>
+      <Box>
+        <Image src="https://via.placeholder.com/300" alt="Mockup 6" />
+      </Box>
     </Container>
   );
 };
