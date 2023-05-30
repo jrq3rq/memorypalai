@@ -5,6 +5,7 @@ import { auth, provider } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { actionTypes } from "./reducer";
 import backgroundImage from "./images/FamilyStoryteller.jpg";
+import { FaHeart } from "react-icons/fa";
 
 const CardContainer = styled.div`
   border-radius: 4px;
@@ -28,10 +29,48 @@ const CardContainer = styled.div`
   }
 `;
 
+const Footer = styled.footer`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 0.5px solid rgba(255, 255, 255, 0.18);
+  animation: fade-in 1s ease-out forwards; */
+  /* background-color: #f4f4f4; */
+  color: #f4f4f4;
+  padding: 10px;
+  font-size: 0.8rem;
+`;
+
+const ParentSiteLink = styled.a`
+  /* font-weight: 100; */
+  font-style: italic;
+  color: #f4f4f4;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin: 0rem 0.5rem;
+
+  &:hover {
+    color: #45fe47;
+    text-decoration: none;
+  }
+`;
+
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  color: #ffffff;
+  color: #f4f4f4;
 `;
 
 const LoginContainer = styled.div`
@@ -194,46 +233,60 @@ function Login() {
   };
 
   return (
-    <LoginContainer>
-      <BackgroundOverlay />
-      <ButtonContainer>
-        <CardContainer>
-          <CustomButton variant="contained" onClick={signIn}>
-            Sign In
-          </CustomButton>
-          {/* <CustomButton variant="contained" onClick={handleOpenModal}>
+    <>
+      <LoginContainer>
+        <BackgroundOverlay />
+        <ButtonContainer>
+          <CardContainer>
+            <CustomButton variant="contained" onClick={signIn}>
+              Sign In
+            </CustomButton>
+            {/* <CustomButton variant="contained" onClick={handleOpenModal}>
             Sign Up
           </CustomButton> */}
-        </CardContainer>
-      </ButtonContainer>
-      <Modal open={modalOpen} onClose={handleCloseModal}>
-        <ModalContainer>
-          <ModalTitle>Create New Profile</ModalTitle>
-          <ModalTextField
-            name="name"
-            label="Name"
-            value={newProfileData.name}
-            onChange={handleInputChange}
-          />
-          <ModalTextField
-            name="email"
-            label="Email"
-            value={newProfileData.email}
-            onChange={handleInputChange}
-          />
-          <ModalTextField
-            name="password"
-            label="Password"
-            type="password"
-            value={newProfileData.password}
-            onChange={handleInputChange}
-          />
-          <ModalButton variant="contained" onClick={handleCreateProfile}>
-            Create Profile
-          </ModalButton>
-        </ModalContainer>
-      </Modal>
-    </LoginContainer>
+          </CardContainer>
+        </ButtonContainer>
+        <Modal open={modalOpen} onClose={handleCloseModal}>
+          <ModalContainer>
+            <ModalTitle>Create New Profile</ModalTitle>
+            <ModalTextField
+              name="name"
+              label="Name"
+              value={newProfileData.name}
+              onChange={handleInputChange}
+            />
+            <ModalTextField
+              name="email"
+              label="Email"
+              value={newProfileData.email}
+              onChange={handleInputChange}
+            />
+            <ModalTextField
+              name="password"
+              label="Password"
+              type="password"
+              value={newProfileData.password}
+              onChange={handleInputChange}
+            />
+            <ModalButton variant="contained" onClick={handleCreateProfile}>
+              Create Profile
+            </ModalButton>
+          </ModalContainer>
+        </Modal>
+        <Footer>
+          Sample Created with{" "}
+          <FaHeart
+            size={12}
+            color="#ffffff"
+            style={{ marginLeft: "0.3rem", marginRight: "0.3rem" }}
+          />{" "}
+          by
+          <ParentSiteLink href="https://studiovoice2fly.com" target="_blank">
+            Studiovoice2fly
+          </ParentSiteLink>
+        </Footer>
+      </LoginContainer>
+    </>
   );
 }
 

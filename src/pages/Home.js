@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BlankPictureGallery from "../components/BlankPictureGallery";
 import Jobotron from "../components/Jombotron";
 import DataUploadCard from "./Upload";
+import S3DownloadButtons from "./DownloadRepo";
 
 export const HomeContainer = styled.div`
   max-width: 800px;
@@ -59,6 +60,22 @@ export const ListItem = styled.li`
   color: #666;
 `;
 
+const buttons = [
+  {
+    label: "Download File 1",
+    url: "https://github-templates.s3.amazonaws.com/FamiliAI-master.zip",
+  },
+  {
+    label: "Download File 2",
+    url: "https://github-templates.s3.amazonaws.com/FamiliAI-master.zip",
+  },
+  {
+    label: "Download File 2",
+    url: "https://github-templates.s3.amazonaws.com/FamiliAI-master.zip",
+  },
+  // Add more button configurations here
+];
+
 const Home = () => (
   <>
     {/* <Jobotron /> */}
@@ -81,6 +98,7 @@ const Home = () => (
         of preserving your family heritage with ease, efficiency, and a touch of
         technological marvel.
       </Paragraph>
+      <S3DownloadButtons buttons={buttons} />
     </HomeContainer>
     <BlankPictureGallery />
   </>
