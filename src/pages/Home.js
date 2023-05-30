@@ -10,7 +10,8 @@ export const HomeContainer = styled.div`
   margin: 2rem auto;
   padding: 2rem;
   border-radius: 8px;
-  background: linear-gradient(
+
+  /* background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.1),
     rgba(255, 255, 255, 0)
@@ -18,7 +19,7 @@ export const HomeContainer = styled.div`
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  animation: fade-in 1s ease-out forwards;
+  animation: fade-in 1s ease-out forwards; */
 `;
 
 export const Heading = styled.h2`
@@ -98,7 +99,7 @@ const Home = () => (
         of preserving your family heritage with ease, efficiency, and a touch of
         technological marvel.
       </Paragraph>
-      <S3DownloadButtons buttons={buttons} />
+      {/* <S3DownloadButtons buttons={buttons} /> */}
     </HomeContainer>
     <BlankPictureGallery />
   </>
