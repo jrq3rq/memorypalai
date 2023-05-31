@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Modal, TextField } from "@material-ui/core";
 import styled from "styled-components";
 import { auth, provider } from "./firebase";
@@ -6,6 +6,47 @@ import { useStateValue } from "./StateProvider";
 import { actionTypes } from "./reducer";
 import backgroundImage from "./images/FamilyStoryteller.jpg";
 import { FaHeart } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
+import { AiFillRobot } from "react-icons/ai";
+import { FaSmile } from "react-icons/fa";
+
+const ChatbotBubble = styled.div`
+  position: fixed;
+  top: 20px; /* Adjust the top value as needed */
+  right: 20px;
+  /* background-color: #45fe47; */
+  color: #333333;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  animation: glowAnimation 2s infinite;
+  @keyframes glowAnimation {
+    0%,
+    100% {
+      background-color: #f6f6f6f6; /* Start and end with the darker color */
+      transform: scale(1);
+    }
+    45%,
+    55% {
+      background-color: #f6f6f6f6; /* Transition to the lighter color */
+      transform: scale(1.1);
+    }
+  }
+`;
+
+const ModalHeader = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const CloseIcon = styled(AiOutlineClose)`
+  cursor: pointer;
+`;
 
 const CardContainer = styled.div`
   border-radius: 4px;
@@ -59,7 +100,7 @@ const ParentSiteLink = styled.a`
   color: #f4f4f4;
   text-decoration: none;
   transition: color 0.3s ease;
-  margin: 0rem 0.5rem;
+  margin: 0rem 0.2rem;
 
   &:hover {
     color: #45fe47;
@@ -132,6 +173,18 @@ const CustomButton = styled(Button)`
   }
 `;
 
+const ModalContainer2 = styled.div`
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  display: ${(props) => (props.showModal ? "block" : "none")};
+`;
+
 //
 const ModalContainer = styled.div`
   /* background-color: white; */
@@ -194,6 +247,7 @@ const ModalButton = styled(Button)`
 
 function Login() {
   const [state, dispatch] = useStateValue();
+  const [showModal, setShowModal] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
   const [newProfileData, setNewProfileData] = useState({
     name: "",
@@ -219,6 +273,17 @@ function Login() {
     // Implement your logic here
     // You can access the profile data using newProfileData.name, newProfileData.email, newProfileData.password
   };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setShowModal(true);
+    }, 5000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   const signIn = () => {
     auth
@@ -246,7 +311,17 @@ function Login() {
           </CustomButton> */}
           </CardContainer>
         </ButtonContainer>
-        <Modal open={modalOpen} onClose={handleCloseModal}>
+        <ChatbotBubble onClick={() => setShowModal((prev) => !prev)}>
+          <FaSmile size={24} />
+        </ChatbotBubble>
+
+        {/* <ModalContainer2 showModal={showModal}>
+          <ModalHeader>
+            <CloseIcon onClick={closeModal} />
+          </ModalHeader>
+
+        </ModalContainer2> */}
+        {/* <Modal open={modalOpen} onClose={handleCloseModal}>
           <ModalContainer>
             <ModalTitle>Create New Profile</ModalTitle>
             <ModalTextField
@@ -272,7 +347,7 @@ function Login() {
               Create Profile
             </ModalButton>
           </ModalContainer>
-        </Modal>
+        </Modal> */}
         <Footer>
           Sample Created with{" "}
           <FaHeart

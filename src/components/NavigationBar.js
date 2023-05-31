@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Nav, Navbar } from "react-bootstrap";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const NavBarContainer = styled.nav`
   position: sticky;
@@ -22,10 +22,16 @@ const BrandLink = styled(Navbar.Brand)`
 const NavLink = styled(Link)`
   color: #000000;
   padding: 1rem;
+  ${({ isActive }) => isActive && "background-color: #f4f4f4;"}
   &:hover {
-    color: #f4f4f4;
     text-decoration: none;
+    color: #000000;
   }
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      background-color: #f4f4f4; /* Background color when link is active */
+    `}
 `;
 
 const NavItem = styled(Nav.Item)`
@@ -44,36 +50,56 @@ const CustomNavbarToggle = styled(Navbar.Toggle)`
 
   & span {
     display: flex; /* Use flexbox for alignment */
-    justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     position: relative;
+
     /* Example line styles */
     &::before,
     &::after {
       content: "";
-      width: auto; /* Width of the lines */
+      width: 20px; /* Width of the lines */
+      height: 30px; /* Height of the lines */
       display: block; /* Display as block elements */
     }
 
     /* Customize each line if needed */
+    &::before {
+      /* Styles for the top line */
+    }
+
+    &::after {
+      /* Styles for the bottom line */
+    }
   }
 
   /* Example hover styles */
   &:hover {
     background-color: #fff; /* Background color on hover */
     /* Add any other hover styles you want */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2),
-      -2px -2px 4px rgba(255, 255, 255, 0.5); */
 
-    /* Example transition styles */
-    transition: background-color 0.3s ease; /* Transition effect for background color */
+    /* Remove the click styles */
+    outline: none; /* Remove the default focus outline */
+    border: none; /* Remove the button border */
+    transform: none; /* Remove any transform */
   }
+
+  /* Remove the click styles */
+  &:active,
+  &:focus {
+    outline: none; /* Remove the default focus outline */
+    border: none; /* Remove the button border */
+    transform: none; /* Remove any transform */
+  }
+
+  /* Example transition styles */
+  transition: background-color 0.3s ease; /* Transition effect for background color */
 `;
 
 const NavigationBar = () => {
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [showNavbar, setShowNavbar] = useState(false);
+  const [showOutline, setShowOutline] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -108,20 +134,32 @@ const NavigationBar = () => {
 
   const handleNavbarToggle = () => {
     setShowNavbar(!showNavbar);
+    setShowOutline(true);
+    setTimeout(() => {
+      setShowOutline(false);
+    }, 5000); // Adjust the duration as needed
   };
 
   return (
     <NavBarContainer scrolled={scrolled}>
       <Navbar expand="lg">
         <BrandLink href="/">AI Family Storyteller</BrandLink>
-        <CustomNavbarToggle
+        {/* <CustomNavbarToggle
           aria-controls="basic-navbar-nav"
           onClick={handleNavbarToggle}
+        /> */}
+        <CustomNavbarToggle
+          onClick={handleNavbarToggle}
+          style={{ outline: showOutline ? "0.5px solid #000" : "none" }}
         />
         <Navbar.Collapse id="basic-navbar-nav" in={showNavbar}>
           <Nav className="ml-auto">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/roadmap">Roadmap</NavLink>
+            <NavLink to="/" isActive={location.pathname === "/"}>
+              Home
+            </NavLink>
+            <NavLink to="/roadmap" isActive={location.pathname === "/roadmap"}>
+              Roadmap
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
