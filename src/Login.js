@@ -9,6 +9,7 @@ import { FaHeart } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { AiFillRobot } from "react-icons/ai";
 import { FaSmile } from "react-icons/fa";
+import { BsFillChatHeartFill } from "react-icons/bs";
 
 const ChatbotBubble = styled.div`
   position: fixed;

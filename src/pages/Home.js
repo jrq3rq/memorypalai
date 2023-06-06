@@ -5,10 +5,15 @@ import Jobotron from "../components/Jombotron";
 import DataUploadCard from "./Upload";
 import S3DownloadButtons from "./DownloadRepo";
 import Footer2 from "../components/Footer";
+import ReusableImage from "../components/ReusableImage";
 
 export const HomeContainer = styled.div`
   max-width: 800px;
-  margin: 2rem auto;
+  /* margin: 1rem 0rem 2rem 0rem; */
+  margin-top: 0rem;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
   padding: 2rem;
   border-radius: 8px;
 `;
@@ -94,8 +99,9 @@ const Home = () => {
 
   return (
     <>
+      <ReusableImage imageNumber={1} /> {/* Display Image 1 */}
       <HomeContainer>
-        <Heading>Welcome!</Heading>
+        {/* <Heading>Welcome!</Heading> */}
         <Paragraph>
           Drawing from its extensive personalized knowledge pools, FamiliAI
           narrates and recounts captivating stories, shares family traditions,
@@ -114,6 +120,7 @@ const Home = () => {
           of technological marvel.
         </Paragraph>
       </HomeContainer>
+      {/* <ReusableImage imageNumber={2} />  */}
       {/* {showFooter && <Footer2 />} */}
       <BlankPictureGallery />
     </>
