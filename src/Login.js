@@ -5,6 +5,7 @@ import { auth, provider } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { actionTypes } from "./reducer";
 import backgroundImage from "./images/FamilyStoryteller.jpg";
+import GarndpaSitting from "./images/GarndpaSitting.png";
 import { FaHeart } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { AiFillRobot } from "react-icons/ai";
@@ -71,14 +72,15 @@ const CardContainer = styled.div`
   }
 `;
 
-const Footer = styled.footer`
+const Header = styled.header`
   position: fixed;
-  bottom: 0;
-  left: 0;
+  top: 0;
+  right: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 
   /* background: linear-gradient(
     135deg,
@@ -90,15 +92,46 @@ const Footer = styled.footer`
   border: 0.5px solid rgba(255, 255, 255, 0.18);
   animation: fade-in 1s ease-out forwards; */
   /* background-color: #f4f4f4; */
-  color: #f4f4f4;
+  color: #333333;
+  /* color: #f4f4f4; */
   padding: 10px;
   font-size: 0.8rem;
+`;
+
+const Footer = styled.footer`
+  font-weight: 100;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 0.5px solid rgba(255, 255, 255, 0.18);
+  animation: fade-in 1s ease-out forwards; */
+  /* background-color: #f4f4f4; */
+  /* color: #333333; */
+  color: #f4f4f4;
+  padding: 20px;
+  font-size: 0.8rem;
+  @media (max-width: 768px) {
+    font-size: 0.6rem;
+  }
 `;
 
 const ParentSiteLink = styled.a`
   /* font-weight: 100; */
   font-style: italic;
   color: #f4f4f4;
+
+  /* color: #f4f4f4; */
   text-decoration: none;
   transition: color 0.3s ease;
   margin: 0rem 0.2rem;
@@ -176,37 +209,35 @@ const CustomButton = styled(Button)`
 
 const ModalContainer2 = styled.div`
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 300px;
-  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   padding: 16px;
   display: ${(props) => (props.showModal ? "block" : "none")};
 `;
 
-//
-const ModalContainer = styled.div`
-  /* background-color: white; */
-  border-radius: 4px;
-  padding: 16px;
+const ModalCard = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0)
-  );
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  animation: fade-in 1s ease-out forwards;
+`;
 
-  & > * {
-    margin-bottom: 16px;
+const ModalImage = styled.img`
+  width: 600px;
+  height: auto;
+  @media (max-width: 768px) {
+    width: 320px;
   }
+`;
+
+const ModalFooter = styled.footer`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #333333;
 `;
 
 const ModalTitle = styled.div`
@@ -248,43 +279,20 @@ const ModalButton = styled(Button)`
 
 function Login() {
   const [state, dispatch] = useStateValue();
-  const [showModal, setShowModal] = useState(true);
-  const [modalOpen, setModalOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [newProfileData, setNewProfileData] = useState({
     name: "",
     email: "",
     password: "",
   });
 
-  const handleOpenModal = () => {
-    setModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setModalOpen(false);
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewProfileData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleCreateProfile = () => {
-    // Use the newProfileData to create a new profile
-    // Implement your logic here
-    // You can access the profile data using newProfileData.name, newProfileData.email, newProfileData.password
-  };
-
   const closeModal = () => {
     setShowModal(false);
   };
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setShowModal(true);
-    }, 5000);
 
-    return () => clearTimeout(timeoutId);
-  }, []);
+  const openModal = () => {
+    setShowModal(true);
+  };
 
   const signIn = () => {
     auth
@@ -315,53 +323,28 @@ function Login() {
         <ChatbotBubble onClick={() => setShowModal((prev) => !prev)}>
           <FaSmile size={24} />
         </ChatbotBubble>
-
-        {/* <ModalContainer2 showModal={showModal}>
+        <ModalContainer2 showModal={showModal}>
           <ModalHeader>
             <CloseIcon onClick={closeModal} />
           </ModalHeader>
-
-        </ModalContainer2> */}
-        {/* <Modal open={modalOpen} onClose={handleCloseModal}>
-          <ModalContainer>
-            <ModalTitle>Create New Profile</ModalTitle>
-            <ModalTextField
-              name="name"
-              label="Name"
-              value={newProfileData.name}
-              onChange={handleInputChange}
-            />
-            <ModalTextField
-              name="email"
-              label="Email"
-              value={newProfileData.email}
-              onChange={handleInputChange}
-            />
-            <ModalTextField
-              name="password"
-              label="Password"
-              type="password"
-              value={newProfileData.password}
-              onChange={handleInputChange}
-            />
-            <ModalButton variant="contained" onClick={handleCreateProfile}>
-              Create Profile
-            </ModalButton>
-          </ModalContainer>
-        </Modal> */}
-        <Footer>
-          Sample Created with{" "}
-          <FaHeart
-            size={12}
-            color="#ffffff"
-            style={{ marginLeft: "0.3rem", marginRight: "0.3rem" }}
-          />{" "}
-          by
-          <ParentSiteLink href="https://studiovoice2fly.com" target="_blank">
-            Studiovoice2fly
-          </ParentSiteLink>
-        </Footer>
+          <ModalCard>
+            <ModalImage src={GarndpaSitting} alt="Card Image" />
+            <ModalFooter>Under Construction!</ModalFooter>
+          </ModalCard>
+        </ModalContainer2>
       </LoginContainer>
+      <Footer>
+        AI Chat Template Sample Created with{" "}
+        <FaHeart
+          size={12}
+          color="red"
+          style={{ marginLeft: "0.3rem", marginRight: "0.3rem" }}
+        />{" "}
+        by
+        <ParentSiteLink href="https://studiovoice2fly.com" target="_blank">
+          Studiovoice2fly
+        </ParentSiteLink>
+      </Footer>
     </>
   );
 }
