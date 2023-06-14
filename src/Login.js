@@ -6,10 +6,14 @@ import { useStateValue } from "./StateProvider";
 import { actionTypes } from "./reducer";
 import backgroundImage from "./images/FamilyStoryteller.jpg";
 import GarndpaSitting from "./images/GarndpaSitting.png";
+import Danilyuk from "./images/videos/pexels-pavel-danilyuk-4812264-3840x2160-30fps.mp4";
+import pexelsLifeOnSuper from "./images/videos/pexels-life-on-super-2759444-1920x1080-18fps.mp4";
+
 import { FaHeart } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { AiFillRobot } from "react-icons/ai";
 import { FaSmile } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 import { BsFillChatHeartFill } from "react-icons/bs";
 
 const ChatbotBubble = styled.div`
@@ -130,7 +134,6 @@ const ParentSiteLink = styled.a`
   /* font-weight: 100; */
   font-style: italic;
   color: #f4f4f4;
-
   /* color: #f4f4f4; */
   text-decoration: none;
   transition: color 0.3s ease;
@@ -138,6 +141,7 @@ const ParentSiteLink = styled.a`
 
   &:hover {
     color: #45fe47;
+
     text-decoration: none;
   }
 `;
@@ -155,9 +159,60 @@ const LoginContainer = styled.div`
   justify-content: center;
   height: 100vh;
   position: relative;
-  background-image: url(${backgroundImage});
+  /* background-image: url(${backgroundImage}); */
   background-size: cover;
   background-position: center;
+`;
+
+const HeroContainer = styled.div`
+  /* background-color: #0c0c0c; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px;
+  height: 100vh;
+  position: relative;
+  /* z-index: 1; */
+  :before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 0%,
+        /* rgba(0, 0, 0, 0.2) 0%, */ rgba(0, 0, 0, 0.6) 100%
+      ),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+    /* z-index: 2; */
+  }
+`;
+
+const VideoBg = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.6) 100%
+      ),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+  }
 `;
 
 const BackgroundOverlay = styled.div`
@@ -166,7 +221,7 @@ const BackgroundOverlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
 `;
 
 const CustomButton = styled(Button)`
@@ -308,36 +363,42 @@ function Login() {
 
   return (
     <>
-      <LoginContainer>
-        {/* <BackgroundOverlay /> */}
-        <ButtonContainer>
-          <CardContainer>
-            <CustomButton variant="contained" onClick={signIn}>
-              Sign In
-            </CustomButton>
-            {/* <CustomButton variant="contained" onClick={handleOpenModal}>
-            Sign Up
-          </CustomButton> */}
-          </CardContainer>
-        </ButtonContainer>
-        <ChatbotBubble onClick={() => setShowModal((prev) => !prev)}>
-          <FaSmile size={24} />
-        </ChatbotBubble>
-        <ModalContainer2 showModal={showModal}>
-          <ModalHeader>
-            <CloseIcon onClick={closeModal} />
-          </ModalHeader>
-          <ModalCard>
-            <ModalImage src={GarndpaSitting} alt="Card Image" />
-            <ModalFooter>Under Construction!</ModalFooter>
-          </ModalCard>
-        </ModalContainer2>
-      </LoginContainer>
+      <HeroContainer>
+        <VideoBg autoPlay loop muted playsInline preload="auto">
+          <source src={Danilyuk} type="video/mp4" />
+          {/* <source src={pexelsLifeOnSuper} type="video/mp4" /> */}
+        </VideoBg>
+        <LoginContainer>
+          <ButtonContainer>
+            <CardContainer>
+              <CustomButton variant="contained" onClick={signIn}>
+                Sign In
+              </CustomButton>
+              {/* <CustomButton variant="contained" onClick={handleOpenModal}>
+                Sign Up
+              </CustomButton> */}
+            </CardContainer>
+          </ButtonContainer>
+          <ChatbotBubble onClick={() => setShowModal((prev) => !prev)}>
+            <FaUserCircle size={32} style={{ color: "#6F6055" }} />
+          </ChatbotBubble>
+          <ModalContainer2 showModal={showModal}>
+            <ModalHeader>
+              <CloseIcon onClick={closeModal} />
+            </ModalHeader>
+            <ModalCard>
+              <ModalImage src={GarndpaSitting} alt="Card Image" />
+              <ModalFooter>Under Construction!</ModalFooter>
+            </ModalCard>
+          </ModalContainer2>
+        </LoginContainer>
+      </HeroContainer>
+
       <Footer>
         AI Chat Template Sample Created with{" "}
         <FaHeart
           size={12}
-          color="red"
+          color="#f4f4f4"
           style={{ marginLeft: "0.3rem", marginRight: "0.3rem" }}
         />{" "}
         by
