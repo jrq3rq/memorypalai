@@ -9,7 +9,27 @@ const NavBarContainer = styled.nav`
   z-index: 100;
   background-color: ${({ scrolled }) => (scrolled ? "#ffffff" : "transparent")};
   transition: background-color 0.3s ease;
+  /* backdrop-filter: blur(10px); */
 `;
+
+// const NavBarContainer = styled.nav`
+//   position: sticky;
+//   top: 0;
+//   z-index: 100;
+//   background-color: ${(props) => (props.scrolled ? "#ffffff" : "transparent")};
+//   transition: background-color 0.3s ease;
+//   backdrop-filter: blur(5px);
+
+//   /* Add vendor-specific prefixes for wider browser support */
+//   position: -webkit-sticky;
+//   position: -moz-sticky;
+//   position: -ms-sticky;
+
+//   /* Add vendor-specific prefixes for backdrop-filter */
+//   -webkit-backdrop-filter: blur(10px);
+//   -moz-backdrop-filter: blur(10px);
+//   -o-backdrop-filter: blur(10px);
+// `;
 
 const BrandLink = styled(Navbar.Brand)`
   color: #000000;

@@ -36,8 +36,8 @@ const App = () => {
           <Router>
             <NavigationBar />
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/roadmap" component={DataUploadCard} />
+              <Route exact path="/roadmap" component={Home} />
+              <Route path="/" component={DataUploadCard} />
               {/* <Route component={NoMatch} /> */}
               <Redirect to="/" />
             </Switch>

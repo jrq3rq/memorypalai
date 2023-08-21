@@ -6,6 +6,8 @@ import DataUploadCard from "./Upload";
 import S3DownloadButtons from "./DownloadRepo";
 import Footer2 from "../components/Footer";
 import ReusableImage from "../components/ReusableImage";
+import FormComponent from "../components/FormComponent";
+import ImageUpload from "../components/UploadIMG";
 
 export const HomeContainer = styled.div`
   max-width: 800px;
@@ -16,6 +18,12 @@ export const HomeContainer = styled.div`
   margin-right: auto;
   padding: 2rem;
   border-radius: 8px;
+`;
+
+const StyleBlock = styled.div`
+  width: 100%;
+  height: 50px;
+  background-color: #f4f4f4;
 `;
 
 export const Heading = styled.h2`
@@ -119,10 +127,14 @@ const Home = () => {
           of preserving your family heritage with ease, efficiency, and a touch
           of technological marvel.
         </Paragraph>
+        {/* <StyleBlock /> */}
+        {/* <ImageUpload /> */}
       </HomeContainer>
+      {/* <FormComponent /> */}
+      {/* <ImageUpload /> */}
       {/* <ReusableImage imageNumber={2} />  */}
       {/* {showFooter && <Footer2 />} */}
-      <BlankPictureGallery />
+      {/* <BlankPictureGallery /> */}
     </>
   );
 };

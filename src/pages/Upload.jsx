@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import BlankPictureGallery from "../components/BlankPictureGallery";
 import { Header, HomeContainer, ListItem, Paragraph, Title } from "./Home";
-import { Container } from "react-bootstrap";
+// import { Container } from "react-bootstrap";
 import Jobotron from "../components/Jombotron";
 import imageData from "../components/ImageData"; // Update the path to your image data file
 
@@ -272,6 +272,115 @@ const DataUploadCard = () => {
             settings and an HTTPS connection.
           </ListItem>
         </ul>
+        <Title>Frontend</Title>
+        <Paragraph>
+          <p>UI Components and Pages:</p>
+          <ul>
+            <ListItem>
+              Develop a modular UI using React components for a consistent and
+              reusable design.
+            </ListItem>
+            <ListItem>
+              Utilize styled-components for CSS-in-JS styling to ensure a
+              cohesive and efficient styling approach.
+            </ListItem>
+          </ul>
+          <p>Routing:</p>
+          <ul>
+            <ListItem>
+              Integrate React Router for seamless navigation between different
+              sections of the application.
+            </ListItem>
+          </ul>
+          <p>Data Fetching:</p>
+          <ul>
+            <ListItem>
+              Use React Query to manage data fetching, caching, and
+              synchronization to improve performance.
+            </ListItem>
+          </ul>
+          <p>Hosting:</p>
+          <ul>
+            <ListItem>
+              Host the frontend on Firebase Hosting for fast content delivery
+              via a global CDN.
+            </ListItem>
+          </ul>
+        </Paragraph>
+        <Paragraph>
+          <Title>Backend</Title>
+          <p>HostREST APIs:</p>
+          <ul>
+            <ListItem>
+              Build RESTful APIs using Node.js and Express to facilitate
+              communication between frontend and backend.
+            </ListItem>
+          </ul>
+          <p>Database:</p>
+          <ul>
+            <ListItem>
+              Utilize Firestore as the primary database for storing templates
+              and other relevant data.
+            </ListItem>
+          </ul>
+          <p>Mongoose Firestore Library:</p>
+          <ul>
+            <ListItem>
+              Leverage the Mongoose Firestore library to create a streamlined
+              interface between the API and Firestore.
+            </ListItem>
+          </ul>
+          <p>AI Integration:</p>
+          <ul>
+            <ListItem>
+              Integrate OpenAI's GPT-3 for auto-generating templates that
+              enhance storytelling and memory preservation.
+            </ListItem>
+          </ul>
+        </Paragraph>
+
+        <Title>General</Title>
+        <Paragraph>
+          To create a robust and user-friendly application, several essential
+          steps can be taken. Ensuring the user interface (UI) remains
+          responsive across various devices is crucial to guarantee a consistent
+          experience for all users. Employing React context for state management
+          streamlines data handling and maintains efficient application
+          performance.
+        </Paragraph>
+        <Paragraph>
+          Additionally, enabling template sharing via unique Firestore document
+          IDs enhances collaboration and content sharing. To manage changes
+          effectively, implementing template version control capabilities is
+          vital, allowing creators to track and revert modifications when
+          necessary.
+        </Paragraph>
+        <Paragraph>
+          Maintaining code quality is essential, achieved by using tools like
+          Prettier for consistent formatting and ESLint for code analysis.
+          Ensuring the application's reliability is equally important; this can
+          be achieved through thorough testing using tools like Jest and React
+          Testing Library.
+        </Paragraph>
+        <Paragraph>
+          Automating development workflows enhances efficiency, and GitHub
+          Actions can be utilized for continuous integration and continuous
+          deployment (CI/CD), making updates seamless and consistent. Security
+          measures shouldn't be overlooked; securing access to the Firestore
+          database through access rules fortifies data protection.
+        </Paragraph>
+        <Paragraph>
+          Optimizing performance is key, and data in Firestore can be paginated
+          to minimize load times. Moreover, caching requests with React Query
+          minimizes unnecessary API calls, further improving responsiveness.
+        </Paragraph>
+        <Paragraph>
+          Lastly, integration with analytics tools like Mixpanel or Amplitude
+          provides valuable insights into user behavior, aiding in making
+          informed decisions for further enhancements. By incorporating these
+          practices, a comprehensive and high-quality application can be
+          developed to meet users' needs effectively.
+        </Paragraph>
       </HomeContainer>
 
       <Jobotron />
