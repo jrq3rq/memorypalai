@@ -129,13 +129,14 @@ const DataUploadCard = () => {
       {/* <BackgroundImage image={images[0]} /> */}
 
       <HomeContainer>
-        <Title>Welcome to FamiliAI</Title>
+        <Title>Welcome to OneFamiliAI</Title>
         <Paragraph>
           Our roadmap outlines the key milestones and objectives for building
-          FamiliAI, a powerful platform that revolutionizes family information
-          management through the integration of cutting-edge technologies. By
-          following this roadmap, we will create a seamless user experience with
-          a wide range of features and robust data security measures.
+          OneFamiliAI, a powerful platform that revolutionizes family
+          information management through the integration of cutting-edge
+          technologies. By following this roadmap, we will create a seamless
+          user experience with a wide range of features and robust data security
+          measures.
         </Paragraph>
         {/* <Paragraph>
           The journey begins with crafting an inviting homepage that captivates
@@ -143,14 +144,14 @@ const DataUploadCard = () => {
           welcome message and introduction, accompanied by sleek user interface
           elements for effortless login and sign-up options. Additionally, the
           homepage will serve as a showcase, highlighting the exceptional
-          features and benefits of FamiliAI.
+          features and benefits of OneFamiliAI.
         </Paragraph> */}
         <ul>
           <ListItem>
             Homepage: The homepage will include a compelling welcome message and
             introduction, as well as user interface elements for login and
             sign-up options. The homepage will also showcase the features and
-            benefits of FamiliAI.
+            benefits of OneFamiliAI.
           </ListItem>
         </ul>
         {/* <Paragraph>
@@ -258,7 +259,7 @@ const DataUploadCard = () => {
           </ListItem>
         </ul>
         {/* <Paragraph>
-          To ensure optimal performance and scalability, we will deploy FamiliAI
+          To ensure optimal performance and scalability, we will deploy OneFamiliAI
           on a suitable hosting platform like Firebase Hosting or Heroku. We
           will meticulously configure deployment settings and establish an HTTPS
           connection, ensuring secure and seamless communication between the web

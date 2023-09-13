@@ -111,7 +111,7 @@ const Home = () => {
       <HomeContainer>
         {/* <Heading>Welcome!</Heading> */}
         <Paragraph>
-          Drawing from its extensive personalized knowledge pools, FamiliAI
+          Drawing from its extensive personalized knowledge pools, OneFamiliAI
           narrates and recounts captivating stories, shares family traditions,
           and exemplifies the significance of heirlooms. These personalized
           narratives are tailored to your history, making family legacy come
