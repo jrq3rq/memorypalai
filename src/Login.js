@@ -54,10 +54,10 @@ const Icon = styled(FaHeart)`
   animation: ${ColorTransitionAnimation2} 20s linear infinite;
   margin-right: 5px;
   margin-left: 5px;
-  color: #212529;
+  /* color: #766f51; */
   @media (max-width: 768px) {
-    animation: none;
-    filter: hue-rotate(0deg);
+    /* animation: none; */
+    /* filter: hue-rotate(0deg); */
   }
 `;
 
@@ -112,6 +112,7 @@ const Header = styled.header`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  font-family: "Dancing Script", cursive;
   color: #000000;
   font-weight: 400;
   font-size: 2.5rem;
@@ -135,14 +136,14 @@ const Header = styled.header`
 const Subheader = styled.div`
   color: #000;
   padding: 0px 0px 0px 2px;
-  font-size: 1.1rem;
-  font-weight: 100;
+  font-size: 1.4rem;
   letter-spacing: 0.2em;
   background-color: transparent;
+  font-family: "Dancing Script", cursive;
   text-align: left;
   max-width: 550px;
   @media (max-width: 768px) {
-    font-size: 0.9em;
+    font-size: 1em;
     text-align: center;
     align-items: center;
     max-width: 350px;
@@ -227,31 +228,30 @@ const Footer = styled.footer`
   width: 100%;
   display: flex;
   justify-content: center;
+  font-family: "Open Sans", sans-serif;
   align-items: center;
-  color: #ffffff;
+  color: #766f51;
   padding: 20px;
   font-size: 0.7rem;
   @media (max-width: 768px) {
     font-size: 0.6rem;
-    color: #000000;
+    color: #766f51;
   }
 `;
 
 const ParentSiteLink = styled.a`
   font-style: italic;
-  color: #ffffff;
+  color: #766f51;
   text-decoration: none;
   transition: color 0.3s ease;
   margin: 0rem 0.2rem;
   font-size: 0.7rem;
-
   &:hover {
     color: #45fe47;
     text-decoration: none;
   }
   @media (max-width: 768px) {
     font-size: 0.6rem;
-    color: #000000;
   }
 `;
 
