@@ -20,16 +20,6 @@ import { FaSmile } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import { BsFillChatHeartFill } from "react-icons/bs";
 
-const LeftSideContainer = styled.div`
-  position: relative;
-  width: 70vw;
-  height: 100vh;
-  @media (max-width: 768px) {
-    height: 70vh;
-    width: 100vw;
-  }
-`;
-
 const goldYellow = "#FFD830";
 const orangeYellow = "#FFB84D";
 const peach = "#FF9770";
@@ -50,11 +40,31 @@ const ColorTransitionAnimation2 = keyframes`
   100% { color: ${goldYellow}; }
 `;
 
+const LoginContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden; /* Prevents scrolling */
+  position: fixed; /* Fixes the position */
+  top: 0;
+  left: 0;
+  width: 100%;
+  @media (max-width: 768px) {
+    /* Adjust for mobile */
+    height: 100%; /* Adjust height for mobile */
+  }
+`;
+
 const Icon = styled(FaHeart)`
-  animation: ${ColorTransitionAnimation2} 20s linear infinite;
+  /* animation: ${ColorTransitionAnimation2} 20s linear infinite; */
   margin-right: 5px;
   margin-left: 5px;
-  /* color: #766f51; */
+  /* color: #000000; */
+  color: #766f51;
   @media (max-width: 768px) {
     /* animation: none; */
     /* filter: hue-rotate(0deg); */
@@ -78,8 +88,19 @@ const RightSideContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0px;
     width: 100vw;
-    height: 30vh;
+    height: 50vh;
+  }
+`;
+
+const LeftSideContainer = styled.div`
+  position: relative;
+  height: 100vh;
+  width: 70vw;
+  @media (max-width: 768px) {
+    height: 50vh;
+    width: 100vw;
   }
 `;
 
@@ -222,9 +243,8 @@ const HeroContainer = styled.div`
 
 const Footer = styled.footer`
   font-weight: 100;
-  position: absolute;
+  position: fixed; /* Change position to fixed */
   bottom: 0;
-  left: 0;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -233,6 +253,8 @@ const Footer = styled.footer`
   color: #766f51;
   padding: 20px;
   font-size: 0.7rem;
+  z-index: 1;
+  background-color: transparent;
   @media (max-width: 768px) {
     font-size: 0.6rem;
     color: #766f51;
@@ -241,6 +263,7 @@ const Footer = styled.footer`
 
 const ParentSiteLink = styled.a`
   font-style: italic;
+  /* color: #000000; */
   color: #766f51;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -255,17 +278,6 @@ const ParentSiteLink = styled.a`
   }
 `;
 
-const LoginContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  height: 100vh;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-`;
-
 const ChatbotBubble = styled.div`
   position: fixed;
   top: 20px;
@@ -277,9 +289,12 @@ const ChatbotBubble = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 24px;
+  color: #1a1a1a;
+  /* color: #ffffff; */
   cursor: pointer;
   /* animation: ${ColorTransitionAnimation} 10s linear infinite; */
-  border: 3px solid #212529;
+  border: 3px solid #1a1a1a;
+  /* border: 3px solid #ffffff; */
   &:hover {
     color: #ffffff;
     border: 3px dotted #ffffff;
@@ -294,6 +309,10 @@ const ChatbotBubble = styled.div`
     55% {
       transform: scale(1.1);
     }
+  }
+  @media (max-width: 768px) {
+    color: #ffffff;
+    border: 3px solid #ffffff;
   }
 `;
 
@@ -433,6 +452,7 @@ const Form = styled.form`
   width: 100%;
   background-color: #f4f4f4;
   border-top: 0.8px solid #ccc;
+
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: center;
@@ -527,13 +547,6 @@ function Login({ transitionSpeed }) {
           <VideoBg autoPlay loop muted playsInline preload="auto">
             <source src={DinnerPartyFam} type="video/mp4" />
           </VideoBg>
-          <Footer>
-            AI Chat Template Sample Created with <Icon size={12} />
-            by
-            <ParentSiteLink href="https://studiovoice2fly.com" target="_blank">
-              Studiovoice2fly
-            </ParentSiteLink>
-          </Footer>
         </LeftSideContainer>
         <ChatbotBubble onClick={() => setShowModal((prev) => !prev)}>
           <FaUserCircle size={32} />
@@ -561,6 +574,13 @@ function Login({ transitionSpeed }) {
           </Subheader>
         </RightSideContainer>
       </HeroContainer>
+      <Footer>
+        AI Chat Template Sample Created with <Icon size={12} />
+        by
+        <ParentSiteLink href="https://studiovoice2fly.com" target="_blank">
+          Studiovoice2fly
+        </ParentSiteLink>
+      </Footer>
     </>
   );
 }
