@@ -1,16 +1,16 @@
-# Preserving Legacies: A Business Case for OneFamiliAI
+# Preserving Legacies: A Business Case for MemoryPal
 
 ## Executive Summary
 
-OneFamiliAI meets a growing consumer need for technology-driven family history preservation. With $3.5 billion spent on genealogy research yearly, our AI-powered platform offers a way for families to easily collect and digitize ancestral memories. OneFamiliAI’s interactive chatbots, centralized knowledge base, and family collaboration features provide an engaging user experience unmatched by competitors.
+MemoryPal meets a growing consumer need for technology-driven family history preservation. With $3.5 billion spent on genealogy research yearly, our AI-powered platform offers a way for families to easily collect and digitize ancestral memories. MemoryPal's interactive chatbots, centralized knowledge base, and family collaboration features provide an engaging user experience unmatched by competitors.
 
 ## Market Validation
 
-- Sizeable Market: Consumer spending on genealogy has rapidly grown to billions, showing families devote considerable resources to exploring ancestry. OneFamiliAI taps into this massive, growing market.
+- Sizeable Market: Consumer spending on genealogy has rapidly grown to billions, showing families devote considerable resources to exploring ancestry. MemoryPal taps into this massive, growing market.
 
 - Favorable Trends: Interest in preserving family histories and managing family information is rising. 73% of adults are curious about their genealogy. As generations pass, the need for solutions like ours increases.
 
-- Underserved Needs: Current family history tools lack innovation beyond basic family trees and records. OneFamiliAI fills a technology gap, allowing interactive preservation of precious family memories.
+- Underserved Needs: Current family history tools lack innovation beyond basic family trees and records. MemoryPal fills a technology gap, allowing interactive preservation of precious family memories.
 
 ## Product Differentiation
 
@@ -22,9 +22,9 @@ OneFamiliAI meets a growing consumer need for technology-driven family history p
 
 ## Feasible Implementation
 
-- Proven Technologies: Cloud databases, AI models, and authentication needed for OneFamiliAI are mature and supported on robust, enterprise-ready platforms.
+- Proven Technologies: Cloud databases, AI models, and authentication needed for MemoryPal are mature and supported on robust, enterprise-ready platforms.
 
-- Data Availability: Large open datasets exist to train core NLP models cost-effectively for OneFamiliAI's needs.
+- Data Availability: Large open datasets exist to train core NLP models cost-effectively for MemoryPal's needs.
 
 - Flexible Architecture: Microservice-based modules allow scaling specific functions as needed to manage growth.
 
@@ -36,14 +36,14 @@ OneFamiliAI meets a growing consumer need for technology-driven family history p
 
 - Data Monetization: As the user base scales, anonymized data and insights can be monetized through partnerships.
 
-OneFamiliAI is poised to become the platform future generations turn to for preserving their family histories. We are leveraging proven technologies to unlock new possibilities. With a massive market, differentiated product, and feasible implementation, our solution enables families globally to treasure their ancestral memories.
+MemoryPal is poised to become the platform future generations turn to for preserving their family histories. We are leveraging proven technologies to unlock new possibilities. With a massive market, differentiated product, and feasible implementation, our solution enables families globally to treasure their ancestral memories.
 
 ## Installation
 
 Clone this repository:
 
 ```bash
-git clone https://github.com/jrq3rq/FamiliAI.git
+git clone https://github.com/jrq3rq/memorypalai.git
 
 
 ```
@@ -51,7 +51,7 @@ git clone https://github.com/jrq3rq/FamiliAI.git
 Navigate to the project directory:
 
 ```bash
-cd FamiliAI
+cd MemoryPal
 ```
 
 Install dependencies:
