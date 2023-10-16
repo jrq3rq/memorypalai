@@ -69,7 +69,7 @@ const NavigationBar = () => {
 
   return (
     <NavBarContainer scrolled={scrolled}>
-      <BrandLink href="/">MemoryPal v0.1 Beta</BrandLink>
+      <BrandLink href="/">MemoryPal AI v0.1 Beta</BrandLink>
     </NavBarContainer>
   );
 };
