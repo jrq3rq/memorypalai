@@ -563,14 +563,15 @@ function Login({ transitionSpeed }) {
           </ModalCard>
         </ModalContainer>
         <RightSideContainer>
-          <Header onClick={signIn}>OneFamiliAI</Header>
+          <Header onClick={signIn}>MemoryPal</Header>
           {/* <CustomTransitionContainer /> */}
           <Subheader>
             {/* Unlock the Power of Memories: Empowering Future Generations */}
             {/* Preserving Family Heritage: Uniting Generations with AI */}
             {/* Uniting Generations through AI-powered Memories and story telling */}
-            Preserving Family Heritage Through AI-Powered Memories and
-            Storytelling
+            {/* Preserving Family Heritage Through AI-Powered Memories and
+            Storytelling */}
+            The AI-powered Curator for Helping Preserve Family Legacy
           </Subheader>
         </RightSideContainer>
       </HeroContainer>

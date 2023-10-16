@@ -2,14 +2,18 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import BlankPictureGallery from "../components/BlankPictureGallery";
 import Jobotron from "../components/Jombotron";
-import DataUploadCard from "./Upload";
+import DataUploadCard, { BackgroundImage } from "./Upload";
 import S3DownloadButtons from "./DownloadRepo";
 import Footer2 from "../components/Footer";
 import ReusableImage from "../components/ReusableImage";
 import FormComponent from "../components/FormComponent";
 import ImageUpload from "../components/UploadIMG";
+import imageData from "../components/ImageData"; // Update the path to your image data file
+
+const images = [imageData[1]];
 
 export const HomeContainer = styled.div`
+  height: auto;
   max-width: 800px;
   /* margin: 1rem 0rem 2rem 0rem; */
   margin-top: 0rem;
@@ -18,6 +22,20 @@ export const HomeContainer = styled.div`
   margin-right: auto;
   padding: 2rem;
   border-radius: 8px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(90px);
+  -webkit-backdrop-filter: blur(15px);
+  /* border: 1px solid #fff; */
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  /* box-shadow: 0 6px 0 rgba(0, 0, 0, 0.37); */
+  @media screen and (max-width: 768px) {
+    margin: 0px 20px 20px 20px;
+  }
 `;
 
 const StyleBlock = styled.div`
@@ -35,7 +53,9 @@ export const Heading = styled.h2`
 export const Paragraph = styled.p`
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  color: #333333;
+  color: #000000;
+  /* color: #333333; */
+  /* color: #ffffff; */
 `;
 
 export const Header = styled.div`
@@ -61,21 +81,22 @@ export const ListItem = styled.li`
   list-style-type: disc;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  color: #666;
+  color: #000000;
+  /* color: #666; */
 `;
 
 const buttons = [
   {
     label: "Download File 1",
-    url: "https://github-templates.s3.amazonaws.com/FamiliAI-master.zip",
+    url: "https://github-templates.s3.amazonaws.com/memorypalai-master.zip",
   },
   {
     label: "Download File 2",
-    url: "https://github-templates.s3.amazonaws.com/FamiliAI-master.zip",
+    url: "https://github-templates.s3.amazonaws.com/memorypalai-master.zip",
   },
   {
     label: "Download File 2",
-    url: "https://github-templates.s3.amazonaws.com/FamiliAI-master.zip",
+    url: "https://github-templates.s3.amazonaws.com/memorypalai-master.zip",
   },
   // Add more button configurations here
 ];
@@ -107,11 +128,12 @@ const Home = () => {
 
   return (
     <>
-      <ReusableImage imageNumber={1} /> {/* Display Image 1 */}
+      <BackgroundImage image={images[0]} />
+      {/* <ReusableImage imageNumber={1} />  */}
       <HomeContainer>
         {/* <Heading>Welcome!</Heading> */}
         <Paragraph>
-          Drawing from its extensive personalized knowledge pools, OneFamiliAI
+          Drawing from its extensive personalized knowledge pools, MemoryPal
           narrates and recounts captivating stories, shares family traditions,
           and exemplifies the significance of heirlooms. These personalized
           narratives are tailored to your history, making family legacy come
@@ -129,10 +151,10 @@ const Home = () => {
         </Paragraph>
         {/* <StyleBlock /> */}
         {/* <ImageUpload /> */}
+        {/* <ReusableImage imageNumber={1} /> */}
       </HomeContainer>
       {/* <FormComponent /> */}
       {/* <ImageUpload /> */}
-      {/* <ReusableImage imageNumber={2} />  */}
       {/* {showFooter && <Footer2 />} */}
       {/* <BlankPictureGallery /> */}
     </>

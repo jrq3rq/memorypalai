@@ -5,10 +5,11 @@ import { Header, HomeContainer, ListItem, Paragraph, Title } from "./Home";
 // import { Container } from "react-bootstrap";
 import Jobotron from "../components/Jombotron";
 import imageData from "../components/ImageData"; // Update the path to your image data file
+import ReusableImage from "../components/ReusableImage";
 
 const images = [imageData[1]];
 
-const BackgroundImage = styled.div`
+export const BackgroundImage = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -126,17 +127,17 @@ const DataUploadCard = () => {
 
   return (
     <>
-      {/* <BackgroundImage image={images[0]} /> */}
+      <BackgroundImage image={images[0]} />
+      {/* <Jobotron /> */}
 
       <HomeContainer>
-        <Title>Welcome to OneFamiliAI</Title>
+        <Title>Welcome to MemoryPal</Title>
         <Paragraph>
           Our roadmap outlines the key milestones and objectives for building
-          OneFamiliAI, a powerful platform that revolutionizes family
-          information management through the integration of cutting-edge
-          technologies. By following this roadmap, we will create a seamless
-          user experience with a wide range of features and robust data security
-          measures.
+          MemoryPal, a powerful platform that revolutionizes family information
+          management through the integration of cutting-edge technologies. By
+          following this roadmap, we will create a seamless user experience with
+          a wide range of features and robust data security measures.
         </Paragraph>
         {/* <Paragraph>
           The journey begins with crafting an inviting homepage that captivates
@@ -144,14 +145,14 @@ const DataUploadCard = () => {
           welcome message and introduction, accompanied by sleek user interface
           elements for effortless login and sign-up options. Additionally, the
           homepage will serve as a showcase, highlighting the exceptional
-          features and benefits of OneFamiliAI.
+          features and benefits of MemoryPal.
         </Paragraph> */}
         <ul>
           <ListItem>
             Homepage: The homepage will include a compelling welcome message and
             introduction, as well as user interface elements for login and
             sign-up options. The homepage will also showcase the features and
-            benefits of OneFamiliAI.
+            benefits of MemoryPal.
           </ListItem>
         </ul>
         {/* <Paragraph>
@@ -259,7 +260,7 @@ const DataUploadCard = () => {
           </ListItem>
         </ul>
         {/* <Paragraph>
-          To ensure optimal performance and scalability, we will deploy OneFamiliAI
+          To ensure optimal performance and scalability, we will deploy MemoryPal
           on a suitable hosting platform like Firebase Hosting or Heroku. We
           will meticulously configure deployment settings and establish an HTTPS
           connection, ensuring secure and seamless communication between the web
@@ -273,7 +274,49 @@ const DataUploadCard = () => {
             settings and an HTTPS connection.
           </ListItem>
         </ul>
-        <Title>Frontend</Title>
+        <Title>General</Title>
+        <Paragraph>
+          To create a robust and user-friendly application, several essential
+          steps can be taken. Ensuring the user interface (UI) remains
+          responsive across various devices is crucial to guarantee a consistent
+          experience for all users. Employing React context for state management
+          streamlines data handling and maintains efficient application
+          performance.
+        </Paragraph>
+        <Paragraph>
+          Additionally, enabling template sharing via unique Firestore document
+          IDs enhances collaboration and content sharing. To manage changes
+          effectively, implementing template version control capabilities is
+          vital, allowing creators to track and revert modifications when
+          necessary.
+        </Paragraph>
+        <Paragraph>
+          Maintaining code quality is essential, achieved by using tools like
+          Prettier for consistent formatting and ESLint for code analysis.
+          Ensuring the application's reliability is equally important; this can
+          be achieved through thorough testing using tools like Jest and React
+          Testing Library.
+        </Paragraph>
+        <Paragraph>
+          Automating development workflows enhances efficiency, and GitHub
+          Actions can be utilized for continuous integration and continuous
+          deployment (CI/CD), making updates seamless and consistent. Security
+          measures shouldn't be overlooked; securing access to the Firestore
+          database through access rules fortifies data protection.
+        </Paragraph>
+        <Paragraph>
+          Optimizing performance is key, and data in Firestore can be paginated
+          to minimize load times. Moreover, caching requests with React Query
+          minimizes unnecessary API calls, further improving responsiveness.
+        </Paragraph>
+        <Paragraph>
+          Lastly, integration with analytics tools like Mixpanel or Amplitude
+          provides valuable insights into user behavior, aiding in making
+          informed decisions for further enhancements. By incorporating these
+          practices, a comprehensive and high-quality application can be
+          developed to meet users' needs effectively.
+        </Paragraph>
+        {/* <Title>Frontend</Title>
         <Paragraph>
           <p>UI Components and Pages:</p>
           <ul>
@@ -338,53 +381,8 @@ const DataUploadCard = () => {
               enhance storytelling and memory preservation.
             </ListItem>
           </ul>
-        </Paragraph>
-
-        <Title>General</Title>
-        <Paragraph>
-          To create a robust and user-friendly application, several essential
-          steps can be taken. Ensuring the user interface (UI) remains
-          responsive across various devices is crucial to guarantee a consistent
-          experience for all users. Employing React context for state management
-          streamlines data handling and maintains efficient application
-          performance.
-        </Paragraph>
-        <Paragraph>
-          Additionally, enabling template sharing via unique Firestore document
-          IDs enhances collaboration and content sharing. To manage changes
-          effectively, implementing template version control capabilities is
-          vital, allowing creators to track and revert modifications when
-          necessary.
-        </Paragraph>
-        <Paragraph>
-          Maintaining code quality is essential, achieved by using tools like
-          Prettier for consistent formatting and ESLint for code analysis.
-          Ensuring the application's reliability is equally important; this can
-          be achieved through thorough testing using tools like Jest and React
-          Testing Library.
-        </Paragraph>
-        <Paragraph>
-          Automating development workflows enhances efficiency, and GitHub
-          Actions can be utilized for continuous integration and continuous
-          deployment (CI/CD), making updates seamless and consistent. Security
-          measures shouldn't be overlooked; securing access to the Firestore
-          database through access rules fortifies data protection.
-        </Paragraph>
-        <Paragraph>
-          Optimizing performance is key, and data in Firestore can be paginated
-          to minimize load times. Moreover, caching requests with React Query
-          minimizes unnecessary API calls, further improving responsiveness.
-        </Paragraph>
-        <Paragraph>
-          Lastly, integration with analytics tools like Mixpanel or Amplitude
-          provides valuable insights into user behavior, aiding in making
-          informed decisions for further enhancements. By incorporating these
-          practices, a comprehensive and high-quality application can be
-          developed to meet users' needs effectively.
-        </Paragraph>
+        </Paragraph> */}
       </HomeContainer>
-
-      <Jobotron />
     </>
   );
 };

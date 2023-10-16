@@ -163,7 +163,7 @@ const NavigationBar = () => {
   return (
     <NavBarContainer scrolled={scrolled}>
       <Navbar expand="lg">
-        <BrandLink href="/">AI Family Storyteller</BrandLink>
+        <BrandLink href="/">MemoryPal v0.1 Beta</BrandLink>
         {/* <CustomNavbarToggle
           aria-controls="basic-navbar-nav"
           onClick={handleNavbarToggle}
