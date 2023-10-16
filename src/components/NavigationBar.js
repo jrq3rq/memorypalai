@@ -7,124 +7,39 @@ const NavBarContainer = styled.nav`
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: ${({ scrolled }) => (scrolled ? "#ffffff" : "transparent")};
+  /* background-color: ${({ scrolled }) =>
+    scrolled ? "#ffffff" : "transparent"}; */
   transition: background-color 0.3s ease;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(90px);
+  -webkit-backdrop-filter: blur(15px);
+  /* border: 1px solid #fff; */
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.18);
+  margin-bottom: 20px;
   /* backdrop-filter: blur(10px); */
 `;
-
-// const NavBarContainer = styled.nav`
-//   position: sticky;
-//   top: 0;
-//   z-index: 100;
-//   background-color: ${(props) => (props.scrolled ? "#ffffff" : "transparent")};
-//   transition: background-color 0.3s ease;
-//   backdrop-filter: blur(5px);
-
-//   /* Add vendor-specific prefixes for wider browser support */
-//   position: -webkit-sticky;
-//   position: -moz-sticky;
-//   position: -ms-sticky;
-
-//   /* Add vendor-specific prefixes for backdrop-filter */
-//   -webkit-backdrop-filter: blur(10px);
-//   -moz-backdrop-filter: blur(10px);
-//   -o-backdrop-filter: blur(10px);
-// `;
-
 const BrandLink = styled(Navbar.Brand)`
   color: #000000;
   padding: 1em;
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  text-align: center; /* Align text center */
   &:hover {
     color: white;
   }
 `;
 
-const NavLink = styled(Link)`
-  color: #000000;
-  padding: 1rem;
-  ${({ isActive }) => isActive && "background-color: #f4f4f4;"}
-  &:hover {
-    text-decoration: none;
-    color: #000000;
-  }
-  ${({ isActive }) =>
-    isActive &&
-    css`
-      background-color: #f4f4f4; /* Background color when link is active */
-    `}
-`;
-
-const NavItem = styled(Nav.Item)`
-  padding: 1em;
-  &:hover {
-    text-decoration: none;
-  }
-`;
-
-const CustomNavbarToggle = styled(Navbar.Toggle)`
-  width: 36px; /* Width of the toggle button */
-  height: 40px; /* Height of the toggle button */
-
-  /* Example padding styles */
-  padding: 4px 5px 5px 2px; /* Padding around the toggle button */
-
-  & span {
-    display: flex; /* Use flexbox for alignment */
-    align-items: center; /* Center vertically */
-    position: relative;
-
-    /* Example line styles */
-    &::before,
-    &::after {
-      content: "";
-      width: 20px; /* Width of the lines */
-      height: 30px; /* Height of the lines */
-      display: block; /* Display as block elements */
-    }
-
-    /* Customize each line if needed */
-    &::before {
-      /* Styles for the top line */
-    }
-
-    &::after {
-      /* Styles for the bottom line */
-    }
-  }
-
-  /* Example hover styles */
-  &:hover {
-    background-color: #fff; /* Background color on hover */
-    /* Add any other hover styles you want */
-
-    /* Remove the click styles */
-    outline: none; /* Remove the default focus outline */
-    border: none; /* Remove the button border */
-    transform: none; /* Remove any transform */
-  }
-
-  /* Remove the click styles */
-  &:active,
-  &:focus {
-    outline: none; /* Remove the default focus outline */
-    border: none; /* Remove the button border */
-    transform: none; /* Remove any transform */
-  }
-
-  /* Example transition styles */
-  transition: background-color 0.3s ease; /* Transition effect for background color */
-`;
-
 const NavigationBar = () => {
-  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [showNavbar, setShowNavbar] = useState(false);
-  const [showOutline, setShowOutline] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
-
       // Adjust the scroll threshold value as needed
       const scrollThreshold = 100;
 
@@ -152,37 +67,9 @@ const NavigationBar = () => {
     };
   }, [showNavbar]);
 
-  const handleNavbarToggle = () => {
-    setShowNavbar(!showNavbar);
-    setShowOutline(true);
-    setTimeout(() => {
-      setShowOutline(false);
-    }, 5000); // Adjust the duration as needed
-  };
-
   return (
     <NavBarContainer scrolled={scrolled}>
-      <Navbar expand="lg">
-        <BrandLink href="/">MemoryPal v0.1 Beta</BrandLink>
-        {/* <CustomNavbarToggle
-          aria-controls="basic-navbar-nav"
-          onClick={handleNavbarToggle}
-        /> */}
-        <CustomNavbarToggle
-          onClick={handleNavbarToggle}
-          style={{ outline: showOutline ? "0.5px solid #000" : "none" }}
-        />
-        <Navbar.Collapse id="basic-navbar-nav" in={showNavbar}>
-          <Nav className="ml-auto">
-            <NavLink to="/" isActive={location.pathname === "/"}>
-              Home
-            </NavLink>
-            <NavLink to="/roadmap" isActive={location.pathname === "/roadmap"}>
-              Roadmap
-            </NavLink>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <BrandLink href="/">MemoryPal v0.1 Beta</BrandLink>
     </NavBarContainer>
   );
 };
